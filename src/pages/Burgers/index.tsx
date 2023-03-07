@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { SnackContext } from '../../contexts/SnackContext';
+import { useSnack } from '../../hooks/useSnack';
 
 import Head from '../../components/Head';
 import Snacks from '../../components/Snacks';
@@ -9,7 +9,7 @@ import SnackTitle from '../../components/SnackTitle';
 import './styles.tsx';
 
 const BurgersPage = () => {
-  const { burgers } = useContext(SnackContext);
+  const { burgers } = useSnack();
 
   return (
       <React.Fragment>
