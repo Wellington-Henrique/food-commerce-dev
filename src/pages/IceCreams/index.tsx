@@ -1,20 +1,13 @@
-import React, { useState, useEffect} from 'react'
+import React, { useContext } from 'react';
+import { SnackContext } from '../../App';
 import Head from '../../components/Head';
 import Snacks from '../../components/Snacks';
 import SnackTitle from '../../components/SnackTitle';
-import { getIceCreams } from '../../services/api';
 
 import './styles.tsx';
 
 const IceCreamsPage = () => {
-  const [iceCreams, setIceCreams] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const iceCreamsRequest = await getIceCreams()
-      setIceCreams(iceCreamsRequest.data);
-    })()
-  }, []);
+  const { iceCreams } = useContext(SnackContext);
 
   return (
     <React.Fragment>

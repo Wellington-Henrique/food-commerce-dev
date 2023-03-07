@@ -1,20 +1,12 @@
-import React, { useState, useEffect} from 'react'
-import Head from '../../components/Head';
+import React, { useContext } from 'react';
+import { SnackContext } from '../../App';import Head from '../../components/Head';
 import Snacks from '../../components/Snacks';
 import SnackTitle from '../../components/SnackTitle';
-import { getPizzas } from '../../services/api';
 
 import './styles.tsx';
 
 const PizzasPage = () => {
-  const [pizzas, setPizzas] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const pizzasRequest = await getPizzas()
-      setPizzas(pizzasRequest.data);
-    })()
-  }, []);
+  const { pizzas } = useContext(SnackContext);
 
   return (
     <React.Fragment>
