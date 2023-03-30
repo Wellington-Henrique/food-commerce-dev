@@ -38,9 +38,32 @@ export function CartProvider({children} : CarProviderProps ) {
     const [cart, setCart] = useState<Snack[]>([]);
 
     function addSnackIntoCart(snack: SnackData) :  void {
+        const snackExistentInCart = cart.find(
+            item => item.snack === snack.snack && item.id === snack.id
+        );
+
+        if (snackExistentInCart) {
+            const newCart = cart.map(
+                item => {
+                    if (item.id === snack.id) {
+                        const quantity = item.quantity + 1;
+                        const subtotal = item.quantity * item.price;
+
+                        return { ...item, quantity, subtotal}
+                    }
+
+                    return item;
+                }
+            );
+
+            console.log('newCart Atualizacao', newCart);
+            setCart(newCart);
+            return;
+        }
+
         const newSnack  = {...snack, quantity: 1, subtotal: snack.price}
         const newCart= [...cart, newSnack];
-        console.log(newCart);
+        console.log('newCart', newCart);
         setCart(newCart);
     }
 
