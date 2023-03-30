@@ -1,4 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
+import { toast } from 'react-toastify';
+import { snackEmoji } from '../helpers/snackEmoji';
 
 import { SnackData } from '../interfaces/SnackData'
 
@@ -57,6 +59,7 @@ export function CartProvider({children} : CarProviderProps ) {
             );
 
             setCart(newCart);
+            toast.success(`${snackEmoji(snack.snack)}  Outro(a) ${snack.name} adicionado(a) no pedido!`);
             return;
         }
 
@@ -64,6 +67,7 @@ export function CartProvider({children} : CarProviderProps ) {
         const newCart= [...cart, newSnack];
 
         setCart(newCart);
+        toast.success(`${snackEmoji(snack.snack)} ${snack.name} adicionado(a) no pedido!`);
     }
 
     return(
