@@ -7,7 +7,7 @@ export function MyOrder () {
     const { cart } = useCart();
 
     return (
-        <Container to=''>
+        <Container to='cart'>
             <span>Meu Pedido</span>
             <CartIcon/>
 
