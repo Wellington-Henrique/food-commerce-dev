@@ -2,12 +2,13 @@ import { currencyFormat } from "../../../../helpers/currencyFormat";
 import { useCart } from "../../../../hooks/useCart";
 import { Container } from "./styles";
 
+import { FaTrashAlt } from 'react-icons/fa'
 
 import plusImg from '../../../../assets/circle-plus.svg';
 import minusImg from '../../../../assets/circle-minus.svg';
 
 const TableDesktop = () => {
-  const { cart } = useCart();
+  const { cart, snackCartIncrement, snackCartDecrement, removeSnackFromCart } = useCart();
 
   return (
     <Container>
@@ -35,7 +36,7 @@ const TableDesktop = () => {
                 <div>
                   <button 
                     type="button" 
-                    onClick={() => console.log('decrementando...')}
+                    onClick={() => snackCartDecrement(item)}
                   >
                     <img src={minusImg} alt="Remover quantidade" />
                   </button>
@@ -44,7 +45,7 @@ const TableDesktop = () => {
                   </span>
                   <button 
                     type="button" 
-                    onClick={() => console.log('adicionando...')}
+                    onClick={() => snackCartIncrement(item)}
                   >
                     <img src={plusImg} alt="Adicionar quantidade" />
                   </button>
@@ -53,7 +54,13 @@ const TableDesktop = () => {
               <td>
                 <h5>{currencyFormat(item.subtotal)}</h5>
               </td>
-              <td>Deletar</td>
+              <td>
+                <button 
+                  type="button" 
+                  onClick={() => removeSnackFromCart(item)}>
+                    <FaTrashAlt/>
+                  </button>
+              </td>
             </tr>)
           }
         </tbody>
