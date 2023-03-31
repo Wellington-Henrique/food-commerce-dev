@@ -73,7 +73,25 @@ export function CartProvider({children} : CarProviderProps ) {
     }
 
     function updateSnackQuantity(snack: Snack, newQuantity: number) :  void {
-        return;
+        if (newQuantity <= 0) return;
+
+        const snackExistentInCart = cart.find(
+            item => item.snack === snack.snack && item.id === snack.id
+        );
+
+        if (!snackExistentInCart) return;
+        
+        const newCart = cart.map(
+            item => {
+                if (item.id === snack.id && item.snack === snackExistentInCart.snack) {
+                    return { ...item, quantity: newQuantity, subtotal: item.price * newQuantity}
+                }
+
+                return item;
+            }
+        );
+
+        setCart(newCart);
     }
 
     function removeSnackFromCart(snack: Snack) :  void {
