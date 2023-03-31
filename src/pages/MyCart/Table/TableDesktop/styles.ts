@@ -39,6 +39,28 @@ export const Container = styled.main`
             font-size: 1.5rem;
         }
 
+        div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            button {
+                background: none;
+                border: none;
+                width: 100%;
+
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+
+                svg {
+                    fill: ${({ theme }) => theme.colors.yellow };
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+        }
+
         h5 {
             font-weight: 700;
             font-size: 1.5rem;

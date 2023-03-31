@@ -49,7 +49,7 @@ export function CartProvider({children} : CarProviderProps ) {
                 item => {
                     if (item.id === snack.id) {
                         const quantity = item.quantity + 1;
-                        const subtotal = item.quantity * item.price;
+                        const subtotal = quantity * item.price;
 
                         return { ...item, quantity, subtotal}
                     }
