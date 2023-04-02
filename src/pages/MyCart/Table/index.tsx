@@ -3,6 +3,7 @@ import { useCart } from "../../../hooks/useCart";
 
 import TableDesktop, { } from './TableDesktop';
 import TableMobile from "./TableMobile";
+import EmptyCart from "../../../components/EmptyCart";
 
 const Table = () => {
     const [ windowWidth, setWindowWidth] = useState(document.documentElement.clientWidth);
@@ -23,7 +24,7 @@ const Table = () => {
     }, [])
 
     if (!cart.length) {
-        return <h1>Ops! parece que você não tem pedidos, peça já!</h1>;
+        return <EmptyCart title='Ops! parece que você não tem pedidos, peça já!'/>
     }
 
     return (
