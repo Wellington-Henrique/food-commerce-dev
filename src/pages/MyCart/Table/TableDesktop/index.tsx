@@ -1,10 +1,10 @@
 import { currencyFormat } from "../../../../helpers/currencyFormat";
 import { useCart } from "../../../../hooks/useCart";
 
-import { FaTrashAlt } from 'react-icons/fa'
 
 import ConfirmOrder from "../../../../components/ConfirmOrder";
 
+import { FaTrashAlt } from 'react-icons/fa';
 import plusImg from '../../../../assets/circle-plus.svg';
 import minusImg from '../../../../assets/circle-minus.svg';
 
