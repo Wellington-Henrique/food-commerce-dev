@@ -6,7 +6,7 @@ const Table = () => {
     const { cart } = useCart();
 
     if (!cart.length) {
-        return <h1>Ops! parce que você não tem pedidos, peça já!</h1>;
+        return <h1>Ops! parece que você não tem pedidos, peça já!</h1>;
     }
 
     return (

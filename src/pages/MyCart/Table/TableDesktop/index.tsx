@@ -1,11 +1,14 @@
 import { currencyFormat } from "../../../../helpers/currencyFormat";
 import { useCart } from "../../../../hooks/useCart";
-import { Container } from "./styles";
 
 import { FaTrashAlt } from 'react-icons/fa'
 
+import ConfirmOrder from "../../../../components/ConfirmOrder";
+
 import plusImg from '../../../../assets/circle-plus.svg';
 import minusImg from '../../../../assets/circle-minus.svg';
+
+import { Container } from "./styles";
 
 const TableDesktop = () => {
   const { cart, snackCartIncrement, snackCartDecrement, removeSnackFromCart } = useCart();
@@ -65,7 +68,7 @@ const TableDesktop = () => {
           }
         </tbody>
       </table>
-
+      <ConfirmOrder/> 
     </Container>
   )
 }
