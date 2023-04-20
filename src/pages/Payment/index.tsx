@@ -20,7 +20,7 @@ const Payment = () => {
           <div className="grouped">
             <div className="field">
               <label htmlFor="email">E-mail</label>
-              <input type="text" id="email" name="email" autoComplete="name"/>
+              <input type="email" id="email" name="email" autoComplete="email"/>
             </div>
 
             <div className="field">
