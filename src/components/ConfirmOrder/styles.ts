@@ -25,7 +25,7 @@ export const Container = styled.footer`
         transition: background 0.3s;
 
         &:hover {
-            background: ${darken(0.1, '#AA2424')}
+            background: ${darken(0.01, '#AA2424')}
         }
     }
 
