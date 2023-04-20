@@ -107,6 +107,30 @@ const Payment = () => {
                 <option value='DF'>Distrito Federal</option>
               </select>
             </div>
+
+            <h4>Pagamento</h4>
+
+            <div className="field">
+              <label htmlFor="credit-cart-number">Número do cartão</label>
+              <input type="text" id="credit-cart-number" name="credit-cart-number" autoComplete="cc-number"/>
+            </div>
+
+            <div className="field">
+              <label htmlFor="credit-card-hold-name">Nome impresso no cartão</label>
+              <input type="text" id="credit-card-hold-name" name="credit-card-hold-name" autoComplete="cc-name"/>
+            </div>
+
+            <div className="grouped">
+              <div className="field">
+                <label htmlFor="credit-card-expiration">Validade (MM/AA)</label>
+                <input type="text" id="credit-card-expiration" name="credit-card-expiration" autoComplete="cc-exp"/>
+              </div>
+
+              <div className="field">
+                <label htmlFor="credit-card-code">Código de segurança (CVV)</label>
+                <input type="text" id="credit-card-code" name="credit-card-code" autoComplete="cc-csc"/>
+              </div>
+            </div>
         </Form>
       </Inner>
     </Container>
