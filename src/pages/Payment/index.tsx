@@ -1,4 +1,5 @@
 import Head from "../../components/Head";
+import PayOrder from "../../components/OrderCloseAction/PayOrder";
 import OrderHeader from "../../components/OrderHeader";
 
 import { Container, Form, Inner } from "./styles";
@@ -132,6 +133,7 @@ const Payment = () => {
               </div>
             </div>
         </Form>
+        <PayOrder/>
       </Inner>
     </Container>
   )

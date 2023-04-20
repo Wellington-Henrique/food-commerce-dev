@@ -2,7 +2,7 @@ import { currencyFormat } from "../../../../helpers/currencyFormat";
 import { useCart } from "../../../../hooks/useCart";
 
 
-import ConfirmOrder from "../../../../components/ConfirmOrder";
+import ConfirmOrder from "../../../../components/OrderCloseAction/ConfirmOrder";
 
 import { FaTrashAlt } from 'react-icons/fa';
 import plusImg from '../../../../assets/circle-plus.svg';
@@ -37,8 +37,8 @@ const TableDesktop = () => {
               </td>
               <td>
                 <div>
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={() => snackCartDecrement(item)}
                   >
                     <img src={minusImg} alt="Remover quantidade" />
@@ -46,8 +46,8 @@ const TableDesktop = () => {
                   <span>
                     {`${item.quantity}`.padStart(2, '0')}
                   </span>
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={() => snackCartIncrement(item)}
                   >
                     <img src={plusImg} alt="Adicionar quantidade" />
@@ -58,8 +58,8 @@ const TableDesktop = () => {
                 <h5>{currencyFormat(item.subtotal)}</h5>
               </td>
               <td>
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   onClick={() => removeSnackFromCart(item)}>
                     <FaTrashAlt/>
                   </button>
@@ -68,7 +68,7 @@ const TableDesktop = () => {
           }
         </tbody>
       </table>
-      <ConfirmOrder/> 
+      <ConfirmOrder/>
     </Container>
   )
 }

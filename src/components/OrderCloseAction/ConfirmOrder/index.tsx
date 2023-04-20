@@ -1,7 +1,7 @@
-import { currencyFormat } from "../../helpers/currencyFormat";
-import { useCart } from "../../hooks/useCart";
+import { currencyFormat } from "../../../helpers/currencyFormat";
+import { useCart } from "../../../hooks/useCart";
 
-import { Container } from "./styles";
+import { Container } from "../styles";
 
 const ConfirmOrder = () => {
     const { cart } = useCart();

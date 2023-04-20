@@ -7,11 +7,11 @@ import plusImg from '../../../../assets/circle-plus.svg';
 import minusImg from '../../../../assets/circle-minus.svg';
 
 import { Container } from "./styles";
-import ConfirmOrder from "../../../../components/ConfirmOrder";
+import ConfirmOrder from "../../../../components/OrderCloseAction/ConfirmOrder";
 
 const TableMobile = () => {
     const { cart, removeSnackFromCart, snackCartIncrement, snackCartDecrement } = useCart();
-    
+
     return (
         <Container>
             {cart.map((item) => (
@@ -26,25 +26,25 @@ const TableMobile = () => {
                     <div>
 
                     <div>
-                        <button 
-                            type='button' 
+                        <button
+                            type='button'
                             onClick={() => snackCartDecrement(item)}
                         >
                             <img src={minusImg} alt='Remover quantidade' />
                         </button>
 
                         <span>{`${item.quantity}`.padStart(2, '0')}</span>
-                        
-                        <button 
-                            type='button' 
+
+                        <button
+                            type='button'
                             onClick={() => snackCartIncrement(item)}
                         >
                             <img src={plusImg} alt='Adicionar quantidade' />
                         </button>
                     </div>
 
-                    <button 
-                        type='button' 
+                    <button
+                        type='button'
                         onClick={() => removeSnackFromCart(item)}
                     >
                         <FaTrashAlt />
@@ -58,7 +58,7 @@ const TableMobile = () => {
                 </div>
             ))}
         <ConfirmOrder />
-        </Container>  
+        </Container>
     )
 }
 
