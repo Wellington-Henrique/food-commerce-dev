@@ -11,28 +11,28 @@ import menuImg from '../../assets/menu.svg';
 import MenuLink from '../MenuLink';
 
 const Sidebar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const handleToggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    }
+  const handleToggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  }
 
-    return (
-        <Container isMenuOpen={isMenuOpen}>
-            <button type='button' onClick={() => handleToggleMenu()}>
-                <img src={menuImg} alt="Abrir e fechar menu"/>
-            </button>
+  return (
+    <Container isMenuOpen={isMenuOpen}>
+      <button type='button' onClick={() => handleToggleMenu()}>
+        <img src={menuImg} alt="Abrir e fechar menu"/>
+      </button>
 
-            <nav>
-                <ul>
-                    <MenuLink path='/' Icon={BurguerIcon} title='Burger'/>
-                    <MenuLink path='/pizzas' Icon={PizzaIcon} title='Pizzas'/>
-                    <MenuLink path='/drinks' Icon={SodaIcon} title='Bebidas'/>
-                    <MenuLink path='/ice-creams' Icon={IceCreamIcon} title='Sorvetes'/>
-                </ul>
-            </nav>
-        </Container>
-    );
+      <nav>
+        <ul>
+          <MenuLink path='/' Icon={BurguerIcon} title='Burger'/>
+          <MenuLink path='/pizzas' Icon={PizzaIcon} title='Pizzas'/>
+          <MenuLink path='/drinks' Icon={SodaIcon} title='Bebidas'/>
+          <MenuLink path='/ice-creams' Icon={IceCreamIcon} title='Sorvetes'/>
+        </ul>
+      </nav>
+    </Container>
+  );
 }
 
 export default Sidebar;

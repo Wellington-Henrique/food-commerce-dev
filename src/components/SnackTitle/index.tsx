@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { Title } from "./styles";
 
 interface SnackTitleProps {
-    children: ReactNode
+  children: ReactNode
 }
 
 const SnackTitle = ({children}: SnackTitleProps) => {

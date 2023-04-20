@@ -1,7 +1,7 @@
 import { SkeletonElement } from './styles';
 
 export interface SkeletonProps {
-    type: 'title' | 'text' | 'image' | 'thumbnail'
+  type: 'title' | 'text' | 'image' | 'thumbnail'
 }
 
 const Skeleton = ({type}: SkeletonProps) => {

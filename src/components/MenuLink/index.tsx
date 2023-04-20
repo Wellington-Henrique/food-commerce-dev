@@ -10,10 +10,10 @@ interface MenuLinkProps {
 const MenuLink = ({path, Icon, title}: MenuLinkProps) => {
   return (
     <li>
-        <NavLink to={path}>
-            <Icon/>
-            <span>{title}</span>
-        </NavLink>
+      <NavLink to={path}>
+        <Icon/>
+        <span>{title}</span>
+      </NavLink>
     </li>
   )
 }

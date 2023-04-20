@@ -12,18 +12,18 @@ const OrderHeader = () => {
 
   return (
     <Container>
-        <Link to='/'>
-            <img src={logoImg} alt='Food Commerce' />
-        </Link>
+      <Link to='/'>
+        <img src={logoImg} alt='Food Commerce' />
+      </Link>
+      <div>
         <div>
-            <div>
-                <h3>Meus pedidos</h3>
-                <span>
-                    <strong>{`${cart.length}`.padStart(2, '0')}</strong> lanche(s)    
-                </span>              
-            </div>
-            <CartIcon />
+          <h3>Meus pedidos</h3>
+          <span>
+            <strong>{`${cart.length}`.padStart(2, '0')}</strong> lanche(s)
+          </span>
         </div>
+        <CartIcon />
+      </div>
     </Container>
   )
 }

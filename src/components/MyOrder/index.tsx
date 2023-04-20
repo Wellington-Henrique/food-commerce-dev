@@ -4,14 +4,14 @@ import { Container } from "./styles";
 import { ReactComponent as CartIcon} from '../../assets/shopping-cart.svg';
 
 export function MyOrder () {
-    const { cart } = useCart();
+  const { cart } = useCart();
 
-    return (
-        <Container to='cart'>
-            <span>Meu Pedido</span>
-            <CartIcon/>
+  return (
+    <Container to='cart'>
+      <span>Meu Pedido</span>
+      <CartIcon/>
 
-            {!!cart.length && <span>{`${cart.length}`.padStart(2, '0')}</span>}
-        </Container>
-    )
+      {!!cart.length && <span>{`${cart.length}`.padStart(2, '0')}</span>}
+    </Container>
+  )
 }

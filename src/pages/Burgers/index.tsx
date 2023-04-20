@@ -12,12 +12,12 @@ const BurgersPage = () => {
   const { burgers } = useSnack();
 
   return (
-      <React.Fragment>
-        <Head title='Hámburgueres' description='Nossos melhores burguers'/>
-        <SnackTitle>Hambúrgueres</SnackTitle>
-        <Snacks snacks={burgers}/>
-      </React.Fragment>
-    )
+    <React.Fragment>
+      <Head title='Hámburgueres' description='Nossos melhores burguers'/>
+      <SnackTitle>Hambúrgueres</SnackTitle>
+      <Snacks snacks={burgers}/>
+    </React.Fragment>
+  )
 }
 
 export default BurgersPage;

@@ -7,9 +7,9 @@ import { Container } from './styles';
 const MyCart = () => {
   return (
     <Container>
-        <Head title='Carrinho'/>
-        <OrderHeader/>
-        <Table/>
+      <Head title='Carrinho'/>
+      <OrderHeader/>
+      <Table/>
     </Container>
   )
 }
