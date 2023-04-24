@@ -1,25 +1,15 @@
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+
 import { IMaskInput } from 'react-imask';
 
 import Head from "../../components/Head";
 import PayOrder from "../../components/OrderCloseAction/PayOrder";
 import OrderHeader from "../../components/OrderHeader";
 
+import { FieldValues, schema } from './validationSchema';
+
 import { Container, Form, Inner } from "./styles";
-
-const schema = yup
-  .object({
-    fullName: yup.string()
-    .required('Nome e sobrenome é um campo obrigatório.')
-    .min(3, 'Nome e sobrenome muito curto.'),
-    email: yup.string().email().required('E-mail é um campo obrigatório.'),
-    mobile: yup.string().required('Celular é um campo obrigatório.')
-  })
-  .required()
-
-type FieldValues = yup.InferType<typeof schema>
 
 const Payment = () => {
   const {
