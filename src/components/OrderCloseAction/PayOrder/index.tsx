@@ -3,14 +3,13 @@ import { Container } from '../styles';
 import { currencyFormat } from '../../../helpers/currencyFormat';
 
 const PayOrder = () => {
-  const { cart, payOrder } = useCart();
+  const { cart } = useCart();
   const totalAmout = cart.reduce((acc, item) => acc += item.subtotal, 0);
 
   return (
     <Container>
       <button
-        type="button"
-        onClick={payOrder}
+        type="submit"
       >
         Pagar
       </button>
