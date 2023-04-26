@@ -36,49 +36,56 @@ interface CartContextProps {
 
 export const CartContext = createContext({} as CartContextProps)
 
-
+const localStorageKey = '@FoodCmmerce:cart'
 interface CarProviderProps {
   children: ReactNode
 }
 
 export function CartProvider({children} : CarProviderProps ) {
-  const [cart, setCart] = useState<Snack[]>([]);
   const navigate = useNavigate();
 
+  const [cart, setCart] = useState<Snack[]>(() => {
+    const value = localStorage.getItem(localStorageKey);
+
+    if (value) return JSON.parse(value);
+
+    return []
+  });
+
   function saveCart(items: Snack[]) {
-    localStorage.setItem("cart", JSON.stringify(items));
+    localStorage.setItem(localStorageKey, JSON.stringify(items));
     setCart(items);
   }
 
   function addSnackIntoCart(snack: SnackData) :  void {
-      const snackExistentInCart = cart.find(
-          item => item.snack === snack.snack && item.id === snack.id
+    const snackExistentInCart = cart.find(
+      item => item.snack === snack.snack && item.id === snack.id
+    );
+
+    if (snackExistentInCart) {
+      const newCart = cart.map(
+          item => {
+              if (item.id === snack.id) {
+                  const quantity = item.quantity + 1;
+                  const subtotal = quantity * item.price;
+
+                  return { ...item, quantity, subtotal}
+              }
+
+              return item;
+          }
       );
 
-      if (snackExistentInCart) {
-          const newCart = cart.map(
-              item => {
-                  if (item.id === snack.id) {
-                      const quantity = item.quantity + 1;
-                      const subtotal = quantity * item.price;
-
-                      return { ...item, quantity, subtotal}
-                  }
-
-                  return item;
-              }
-          );
-
-          saveCart(newCart);
-          toast.success(`${snackEmoji(snack.snack)}  Outro(a) ${snack.name} adicionado(a) no pedido!`);
-          return;
-      }
-
-      const newSnack  = {...snack, quantity: 1, subtotal: snack.price}
-      const newCart= [...cart, newSnack];
-
       saveCart(newCart);
-      toast.success(`${snackEmoji(snack.snack)} ${snack.name} adicionado(a) no pedido!`);
+      toast.success(`${snackEmoji(snack.snack)}  Outro(a) ${snack.name} adicionado(a) no pedido!`);
+      return;
+    }
+
+    const newSnack  = {...snack, quantity: 1, subtotal: snack.price}
+    const newCart= [...cart, newSnack];
+
+    saveCart(newCart);
+    toast.success(`${snackEmoji(snack.snack)} ${snack.name} adicionado(a) no pedido!`);
   }
 
   function updateSnackQuantity(snack: Snack, newQuantity: number) :  void {
