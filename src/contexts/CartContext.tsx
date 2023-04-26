@@ -57,6 +57,10 @@ export function CartProvider({children} : CarProviderProps ) {
     setCart(items);
   }
 
+  function ClearCart() {
+    localStorage.removeItem(localStorageKey);
+  }
+
   function addSnackIntoCart(snack: SnackData) :  void {
     const snackExistentInCart = cart.find(
       item => item.snack === snack.snack && item.id === snack.id
@@ -130,6 +134,7 @@ export function CartProvider({children} : CarProviderProps ) {
   }
 
   function payOrder(customer: CustomerData) :  void {
+    ClearCart();
     return;
   }
 
