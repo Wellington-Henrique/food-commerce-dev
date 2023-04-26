@@ -45,6 +45,11 @@ export function CartProvider({children} : CarProviderProps ) {
   const [cart, setCart] = useState<Snack[]>([]);
   const navigate = useNavigate();
 
+  function saveCart(items: Snack[]) {
+    localStorage.setItem("cart", JSON.stringify(items));
+    setCart(items);
+  }
+
   function addSnackIntoCart(snack: SnackData) :  void {
       const snackExistentInCart = cart.find(
           item => item.snack === snack.snack && item.id === snack.id
@@ -64,7 +69,7 @@ export function CartProvider({children} : CarProviderProps ) {
               }
           );
 
-          setCart(newCart);
+          saveCart(newCart);
           toast.success(`${snackEmoji(snack.snack)}  Outro(a) ${snack.name} adicionado(a) no pedido!`);
           return;
       }
@@ -72,7 +77,7 @@ export function CartProvider({children} : CarProviderProps ) {
       const newSnack  = {...snack, quantity: 1, subtotal: snack.price}
       const newCart= [...cart, newSnack];
 
-      setCart(newCart);
+      saveCart(newCart);
       toast.success(`${snackEmoji(snack.snack)} ${snack.name} adicionado(a) no pedido!`);
   }
 
@@ -95,13 +100,13 @@ export function CartProvider({children} : CarProviderProps ) {
     }
     );
 
-    setCart(newCart);
+    saveCart(newCart);
   }
 
   function removeSnackFromCart(snack: Snack) :  void {
     const newCart = cart.filter(item => !(item.id === snack.id && item.snack === snack.snack));
 
-    setCart(newCart);
+    saveCart(newCart);
     toast.success("Item removido do carrinho!");
   }
 
